@@ -22,8 +22,8 @@ function App() {
       tempTotal = 0
       setNewTotal(false);
     }
-
     setRunningTotal(parseFloat("" + tempTotal + number));
+
   }
 
   const handleDecimal = () => {
@@ -102,7 +102,7 @@ function App() {
   return (
     <div className="container">
     <div className="calculator">
-      <div data-testid="running-total" id="running-total" className="display">{ runningTotal }</div>
+      <div data-testid="running-total" id="running-total" className="display">{ runningTotal ? runningtotal : "err" }</div>
       <KeyPad 
       handleNumber={numberClick} 
       handleOperator={operatorClick} 
@@ -113,5 +113,6 @@ function App() {
   </div>
   );
 }
+
 
 export default App;
