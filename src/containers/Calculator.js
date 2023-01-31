@@ -92,17 +92,23 @@ function App() {
     setCalculatedTotal(calculatedNumber);
   }
 
-  const divide = (number) => {
-    let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
-    setRunningTotal(calculatedNumber);
-    setCalculatedTotal(calculatedNumber);
+  const divide = (number) => { // we are intersted in the divide function
+      if (number === 0) {  // if the number we are passing as an argument is zero
+        setRunningTotal("err");  // set the running total to err (because it's what I want to display)
+        setCalculatedTotal("err"); // and do the same for the calculated total (we are doing it on the previous ones too)
+      } 
+      else {
+        let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+        setRunningTotal(calculatedNumber);
+        setCalculatedTotal(calculatedNumber);
+      }
   }
 
 
   return (
     <div className="container">
     <div className="calculator">
-      <div data-testid="running-total" id="running-total" className="display">{ runningTotal ? runningTotal : "err" }</div>
+    <div data-testid="running-total" id="running-total" className="display">{ runningTotal }</div>
       <KeyPad 
       handleNumber={numberClick} 
       handleOperator={operatorClick} 
