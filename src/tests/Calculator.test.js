@@ -106,10 +106,7 @@ describe('Calculator', () => {
     fireEvent.click(clearAll);
     const runningTotal = container.getByTestId('running-total');
     expect(runningTotal.textContent).toEqual('0')
-
   })
-
-})
   
 
 
